@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/main.css">
+    <title>Minesweeper💣 </title>
+
+</head>
+<h2>Minesweeper💣</h2>
+<body onload="init()" oncontextmenu="return false">
+    <div >
+        <input type="radio" name="numbers" value="0" onclick="ChangeBoard(`${value}`)" checked class="input" id="default">
+        Begginer<br>
+        <input type="radio" name="numbers" value="1" onclick="ChangeBoard(`${value}`)" class="input"> Medium<br>
+        <input type="radio" name="numbers" value="2" onclick="ChangeBoard(`${value}`)" class="input"> Expert
+    </div>
+    <table class="board-container" border="5px" >
+        <tbody>
+        </tbody>
+    </table>
+    <div class="game-over hide">
+        <span> </span> <br>
+        <button onclick="restart()">😊</button>
+    </div>
+    <div class="timer">Time: </div>
+    <div >
+        <span>Hints :</span>
+        <button class="hint" onclick="activatHint()">💡💡💡</button>
+        <span>Safe Click :</span>
+        <button class="Safe" onclick="SafeCells()">🦺🦺🦺</button>
+    </div>
+    <div >
+            <span class="lives">Lives : 😊😊😊</span>
+            
+        </div>
+        <div class="bestScroe">
+            <ul id=4></ul>
+            <ul id=8></ul>
+            <ul id=12></ul>
+        </div>
+
+    <script src="js/main.js"></script>
+
+</body>
+
+</html>
