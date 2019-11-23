@@ -10,14 +10,18 @@
 
 </head>
 <h2>Minesweeper💣</h2>
-<body onload="init()" oncontextmenu="return false">
+
+<body onload="init()" >
+    <!-- <div class="manual mode">
+        <button onclick="manual()">Manual mode</button>
+    </div> -->
     <div >
         <input type="radio" name="numbers" value="0" onclick="ChangeBoard(`${value}`)" checked class="input" id="default">
         Begginer<br>
         <input type="radio" name="numbers" value="1" onclick="ChangeBoard(`${value}`)" class="input"> Medium<br>
         <input type="radio" name="numbers" value="2" onclick="ChangeBoard(`${value}`)" class="input"> Expert
     </div>
-    <table class="board-container" border="5px" >
+    <table class="board-container" border="5px" oncontextmenu="return false">
         <tbody>
         </tbody>
     </table>
@@ -41,6 +45,9 @@
             <ul id=8></ul>
             <ul id=12></ul>
         </div>
+     
+
+
 
     <script src="js/main.js"></script>
 

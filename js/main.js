@@ -24,7 +24,7 @@ var gSafeclicksLeft = 2
 localStorage.Begginer=999
 localStorage.Medium=999
 localStorage.Expert=999
-
+var isManual=false
 gLevel = [{ SIZE: 4, MINES: 2, bestTime: Infinity }, { SIZE: 8, MINES: 12, bestTime: Infinity }, { SIZE: 12, MINES: 30, bestTime: Infinity }]
 
 var gBoard = buildBoard(gLevel[0].SIZE)
@@ -155,8 +155,10 @@ function setMinesNegsCount() {
 
 
 function cellClicked(elCell, i, j, event) {
-    console.log(elCell);
-
+    // if (isManual) {
+    //     placeMines(i,j)
+    // return
+    // }
     if (gIsHint) {
         revealHint(i, j)
         return
@@ -539,4 +541,28 @@ function SafeCells() {
         var elHint = document.querySelector('.Safe')
         elHint.innerText = ('No safe clicks left 😞')
     }
-}
+}       
+
+
+// function manual() {
+//      isManual=true
+// }
+
+
+// function placeMines(i,j) {
+   
+//     if( gBoard[i][j].isMine===true){
+//     gBoard[i][j].isMine=false
+//     gBoard[i][j].isShown=false
+//     }
+//     else {
+//         gBoard[i][j].isMine=true
+//         gBoard[i][j].isShown=true
+
+//     }
+// renderBoard()
+// }
+
+
+
+
