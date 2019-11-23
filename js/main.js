@@ -21,9 +21,9 @@ var ghintsLeft = 2
 var gShownCells = []
 var gLivesLeft = 3
 var gSafeclicksLeft = 2
-localStorage.Begginer=Infinity
-localStorage.Medium=Infinity
-localStorage.Expert=Infinity
+localStorage.Begginer=999
+localStorage.Medium=999
+localStorage.Expert=999
 
 gLevel = [{ SIZE: 4, MINES: 2, bestTime: Infinity }, { SIZE: 8, MINES: 12, bestTime: Infinity }, { SIZE: 12, MINES: 30, bestTime: Infinity }]
 
@@ -261,7 +261,11 @@ function showAllMines() {
 function cellMarked(i, j, event) {
     if (!gGame.isOn) return
     var cell = gBoard[i][j]
-    if (cell.isShown) return
+    if (cell.isShown && cell.isMarked)  {
+        cell.isMarked=false
+        cell.isShown=false
+    }
+    if (cell.isShown)return
     cell.isMarked = (cell.isMarked) ? false : true;
     renderBoard();
     (cell.isMarked) ? gGame.markedCount++ : gGame.markedCount--;
@@ -451,18 +455,17 @@ function findShownCells(posI, posJ) {
 
 
 function cehckBestScroe() {
-    var bestTime = 0
+    
     switch (gBoard.length) {
         case gLevel[0].SIZE:
             if (gTimeCounter < localStorage.Begginer)
                 localStorage.Begginer = gTimeCounter
-            bestTime = gTimeCounter
             var elBestScore = document.getElementById(gBoard.length)
             elBestScore.innerText = "Begginer:" + localStorage.Begginer
             break
         case gLevel[1].SIZE:
             if (gTimeCounter < localStorage.Medium)
-                localStorage.Medium = gTimeCounter
+                ocalStorage.Medium = gTimeCounterl
             var elBestScore = document.getElementById(gBoard.length)
             elBestScore.innerText = "Medium:" + localStorage.Medium
             break;
